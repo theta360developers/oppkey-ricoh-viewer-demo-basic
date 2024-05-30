@@ -1,0 +1,28 @@
+{
+  "name": "ricoh-viewer-testing",
+  "version": "1.0.0",
+  "description": "- https://ricoh360.notion.site/Instruction-Guide-for-Technical-Partners-596cbb3f4f5f467d85042df677e3b49c",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-loader": "^9.1.3",
+    "bcrypt": "^5.1.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "epxress": "^0.0.1-security",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.0",
+    "ricoh-theta": "^0.3.5",
+    "webpack": "^5.90.3",
+    "webpack-merge": "^5.10.0"
+  }
+}
