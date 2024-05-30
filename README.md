@@ -4,7 +4,8 @@
 
 ![login screen](readme_assets/login_screen.png)
 
-Contact Oppkey for login to public cloud-based site.
+Contact Oppkey for login to public cloud-based site. Refer to [oppkey-ricoh360-viewer-demo-with-login](https://github.com/codetricity/oppkey-ricoh360-viewer-demo-with-login) for an example showing deploy to Vercel with basic authentication
+login.
 
 
 ### running demo locally on a laptop or computer
@@ -14,20 +15,10 @@ and private key from RICOH and set the information in `secrets.env`.
 Oppkey can assist partners in the setup.  If the `secrets.env` file
 is not set up properly, the application will fail to run.  
 
-#### if the secrets.env is setup 
-
-If Oppkey setup your `secrets.env` or if you copied and pasted the file
-from the private GitHub repo, then the login for the local app is:
-
-- user=devuser
-- password=ChangeMe
-
 Full `secrets.env` used by Oppkey is available [here](https://github.com/codetricity/oppkey-ricoh-viewer-credentials/blob/main/README.md). The
-credentials, private key, client id, and client secret are in a private GitHub repo. If you are a RICOH staff or partner and have authorization to use the Oppkey client id, private key, and client secret, then contact Oppkey and we will send you the file. Otherwise, you will need to use your own keys that you got from RICOH.
+private key, client id, and client secret are in a private GitHub repo. If you are a RICOH staff or partner and have authorization to use the Oppkey client id, private key, and client secret, then contact Oppkey and we will send you the file. Otherwise, you will need to use your own keys that you got from RICOH.
 
-![login credentials](readme_assets/login_credentials.png)
-
-Ricoh Viewer API with Node.js/Express.js & EJS templating
+RICOH Viewer API with Node.js/Express.js & EJS templating
 
 1. [Project Structure](#project-structure)
 2. [Getting the app running](#getting-the-app-running)
@@ -457,25 +448,18 @@ viewer.start({
 
 ## Environment Variables
 
-Create a secrets.env file in the root of the project with the following secrets:
+Create a `secrets.env` file in the root of the project with the following secrets:
 
 ```text
-OPPKEY_VIEWER_PASSWORD=ChangeMe
-OPPKEY_VIEWER_USERNAME=devuser
-SESSION_SECRET=93qBc2janrrGcwvOxIEth3RFgf31Cg0K
 CLIENT_ID=<Your unique client id from RICOH for the platform API>
 CLIENT_SECRET=<client secret for your client id for the platform API>
 PRIVATE_KEY="<long private key for the viewer>"
-
 ```
 
 ## Deploy Your Own Demo on Vercel
 
-The file `vercel.json` has the routes to build on Vercel.  Oppkey
-used a free account in testing and the viewer demo ran fine on the
-free account.
-If you deploy your own server on Vercel, you must set up the
-environmental variables on Vercel and set a username and password if you
-want one.  This example uses local authentication to keep the
-demo self-contained on a local computer.  In deployment,
-you should use something like Amazon Cognito, Auth0, Firebase Authentication.
+Please refer to the project [oppkey-ricoh360-viewer-demo-with-login](https://github.com/codetricity/oppkey-ricoh360-viewer-demo-with-login)
+ for a variation of this project with:
+
+* `vercel.json` file
+* local login example to secure your public site
