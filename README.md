@@ -43,6 +43,21 @@ The server can be run on a laptop with node.
 
 ![step 1: go to business web app](readme_assets/slides/03_step_1.png)
 
+---
+
+![step 2: load ricoh viewer](readme_assets/slides/04_step_2_load_viewer.png)
+
+The token for the viewer is not the same as the token generated for the
+RICOH360 Platform Content API.
+
+---
+
+![step 3: generate content API](readme_assets/slides/05_generate_content_api_token.png)
+
+---
+
+![step 4: combine viewer blur with button ](readme_assets/slides/06_step_4_blur_api.png)
+
 ### running demo locally on a laptop or computer
 
 Prior to running locally, you will need obtain a client id, client secret,

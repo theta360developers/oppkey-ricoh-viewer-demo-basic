@@ -11,7 +11,7 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 
 /**
  * You will need three things from RICOH.
- * 1. private key for the RICOH Viewer
+ * 1. Private Key for the RICOH Viewer
  * 2. Client ID to store/retrieve images and for transformations
  * 3. Client Secret
  */
@@ -21,7 +21,10 @@ const clientSecret = process.env.CLIENT_SECRET;
 
 /**
  * async function to query content such as images
- * from RICOH360 platform API
+ * from RICOH360 platform API.  Uses the Client ID and Client
+ * Secret to generate a token for uses with the RICOH360 platform
+ * API.  This token is different from the token used for the viewer.
+ * 
  * @returns list of content with content ID needed by viewer
  */
 const getContent = async () => {
@@ -54,7 +57,9 @@ const getContent = async () => {
   return data;
 };
 
-// create token for viewer API with JWT
+/**
+ *  create token for viewer API with JWT
+ */ 
 const createToken = () => {
   const payload = {
     // Get client id for platform API from environmental variable
@@ -65,39 +70,44 @@ const createToken = () => {
     algorithm: "RS256",
     expiresIn: "60m",
   });
-
   return accessToken;
 };
 
-// endpoint for front end to get a accesstoken with createToken function
+/**
+ * endpoint for front end to get an access token with createToken function
+ */
 app.get("/token", (req, res) => {
   let token = createToken();
   res.status(200).send(token);
 });
 
-// endpoint for front end to access content with getContent function
+/**
+ * endpoint for front end to access content with getContent function.
+ * Simplified example returns a list of content. Make sure you
+ * async and await the results.
+ */
 app.get("/content", async (req, res) => {
   let test = await getContent();
   res.status(200).send(test);
 });
 
-// viewer end point
+/** 
+ * viewer end point.  Main file in views/viewer.ejs is the primary
+ * example code for the viewer.
+ */
 app.get("/viewer", (req, res) => {
   res.render("viewer");
 });
 
-// endpoint for home page
+/**
+ * endpoint for home page that introduces your business application. This
+ * is a skeleton marketing page, not the page that shows the viewer.
+ */
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-// endpoint for logging out
-app.get("/logout", (req, res) => {
-  req.session.destroy(() => {
-    res.redirect("/");
-  });
-});
 
 app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+  console.log("Open browser at http://localhost:3000 or http://127.0.0.1:3000");
 });
