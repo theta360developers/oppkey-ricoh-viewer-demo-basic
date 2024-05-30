@@ -4,9 +4,44 @@
 
 ![login screen](readme_assets/login_screen.png)
 
-Contact Oppkey for login to public cloud-based site. Refer to [oppkey-ricoh360-viewer-demo-with-login](https://github.com/codetricity/oppkey-ricoh360-viewer-demo-with-login) for an example showing deploy to Vercel with basic authentication
+Contact Oppkey for login to public cloud-based site. Refer to code on GitHub
+repository [oppkey-ricoh360-viewer-demo-with-login](https://github.com/codetricity/oppkey-ricoh360-viewer-demo-with-login) for an example showing how to deploy to Vercel with basic authentication
 login.
 
+## Features
+
+
+### Split Screen and Image Enhancement
+
+Pre-built split screen component shown using RICOH's included
+image enhancement technology. 
+
+![split screen](readme_assets/split_screen.png)
+
+### Annotation
+
+![annotate menu](readme_assets/annotate_menu.png)
+
+Written notes and simple drawings appear in viewer.
+
+![annotate](readme_assets/annotate.png)
+
+
+## Demo Overview
+
+![Demo Overview](readme_assets/slides/01_overview.png)
+
+The demo is intended to be a live hosted site on AWS or Vercel.
+It consists of a backend server and a front end web application.
+The server can be run on a laptop with node.
+
+---
+
+![process steps](readme_assets/slides/02_process.png)
+
+---
+
+![step 1: go to business web app](readme_assets/slides/03_step_1.png)
 
 ### running demo locally on a laptop or computer
 
@@ -39,19 +74,6 @@ RICOH Viewer API with Node.js/Express.js & EJS templating
 2. In a new terminal in the root directory of the project, run `npm install`
 3. Run `npm run start`, the app should start locally on port 3000, `http://localhost:3000`
 
-### Split Screen
-
-Built-in feature.  
-
-![split screen](readme_assets/split_screen.png)
-
-### Annotation
-
-![annotate menu](readme_assets/annotate_menu.png)
-
-Written notes and simple drawings appear in viewer.
-
-![annotate](readme_assets/annotate.png)
 
 ## How it Works
 
@@ -396,3 +418,4 @@ Please refer to the project [oppkey-ricoh360-viewer-demo-with-login](https://git
 
 * `vercel.json` file
 * local login example to secure your public site
+
