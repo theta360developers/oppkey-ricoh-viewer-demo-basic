@@ -49,7 +49,7 @@ Built-in feature.
 
 ![annotate menu](readme_assets/annotate_menu.png)
 
-Written notes appear in viewer.
+Written notes and simple drawings appear in viewer.
 
 ![annotate](readme_assets/annotate.png)
 
@@ -82,17 +82,17 @@ const createToken = () => {
 };
 ```
 
-- createToken() uses a payload object with your clientID and optionally your groupID
-- Using json-web-token package, you create and return an access token with an encryption algorithm that expires in a certain time (60 minutes)
+- `createToken()` uses a payload object with your clientID and optionally your groupID
+- Using [jsonwebtoken package](https://www.npmjs.com/package/jsonwebtoken), you create and return an access token with an encryption algorithm that expires in a certain time (60 minutes)
 - This function will be called client side via the API endpoint for this function and used in a callback function for Ricoh's viewer API
 
 #### getContent()
 
 ```typescript
-const getContent = async () => {
-  const clientId = "<your client id>";
-  const clientSecret = "<your client secret>";
+const clientId = "<your client id>";
+const clientSecret = "<your client secret>";
 
+const getContent = async () => {
   const tokenEndpoint =
     "https://saas-prod.auth.us-west-2.amazoncognito.com/oauth2/token";
 
@@ -140,83 +140,16 @@ app.get("/", (req, res) => {
 
 This endpoint returns the EJS template file (index.ejs) in ./views
 
-#### /login
-
-```typescript
-// endpoint for logging in
-app.get("/login", async (req, res) => {
-  // check if user session is already logged in
-  if(req.session.isLoggedIn){
-    res.redirect("/")
-  }
- 
-  // grab username and password from environment variable
-  const envUsername = process.env.OPPKEY_VIEWER_USERNAME;
-  const envPassword = process.env.OPPKEY_VIEWER_PASSWORD;
-
-  // hash password from environment variable
-  const hashedPassword = await bcrypt.hash(envPassword, 10);
-
-  // function that denies authorization
-  const reject = () => {
-    res.setHeader("www-authenticate", "Basic");
-    res.sendStatus(401);
-  };
-
-  // authorization constant
-  const authorization = req.headers.authorization;
-
-  // listen for authorization input
-  if (!authorization) {
-    return reject();
-  }
-
-  // grab authorization inputs
-  const [usernameInput, passwordInput] = Buffer.from(
-    authorization.replace("Basic ", ""),
-    "base64"
-  )
-    .toString()
-    .split(":");
-
-  // if authorization inputs match username and hashed password, authenticate session and redirect to viewer
-  if (
-    !(
-      usernameInput === envUsername &&
-      (await bcrypt.compare(passwordInput, hashedPassword))
-    ) == true
-  ) {
-    return reject();
-  } else {
-    req.session.isLoggedIn = true;
-    res.redirect("/viewer");
-  }
-});
-```
-
-This endpoint grabs authorization in the form of username and password and if the login information is correct, it authenticates the user in a session and redirects the user to the viewer
 
 #### /viewer
 
 ```typescript
 app.get("/viewer", (req, res) => {
-  // reject function in case of no session authorization
-  const reject = () => {
-    res.setHeader("www-authenticate", "Basic");
-    res.sendStatus(401);
-  };
-  // if user session is logged in, return viewer. if not, return rejection
-  if (req.session.isLoggedIn) {
-    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-    res.setHeader("Pragma", "no-cache");
-    res.setHeader("Expires", "0");
-    res.render("viewer");
-  } else {
-    return reject();
-  }
+  res.render("viewer");
 });
 ```
-The viewer endpoint returns the viewer page if the user's session is active and authenticated
+Calls up the main viewer with the split view, transformations, and
+content.
 
 #### /token
 
@@ -238,7 +171,7 @@ app.get("/content", async (req, res) => {
 });
 ```
 
-This endpoint calls on the getContent() async function and returns the content data
+This endpoint calls on the getContent() async function and returns the content data which is needed by the viewer.
 
 ### Client-side (in ./views/index.ejs)
 
@@ -322,7 +255,7 @@ const fetchContent = async () => {
 };
 ```
 
-fetchContent() makes a async get request to the backend endpoint /content and returns content data and populates listing of images with transform buttons
+`fetchContent()` makes a async get request to the backend endpoint /content and returns content data and populates listing of images with transform buttons
 
 #### fetchToken()
 
