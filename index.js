@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 const express = require("express");
-const ejs = require("ejs");
+// const ejs = require("ejs");
 const app = express();
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const session = require("express-session");
 const path = require("path");
 
@@ -88,12 +88,12 @@ app.get("/content", async (req, res) => {
 });
 
 // endpoint for logging in
-app.get("/login", async (req, res) => {
+/* app.get("/login", async (req, res) => {
   // check if user session is already logged in
-  if(req.session.isLoggedIn){
+  if (req.session.isLoggedIn) {
     res.redirect("/")
   }
- 
+
   // grab username and password from environment variable
   const envUsername = process.env.OPPKEY_VIEWER_USERNAME;
   const envPassword = process.env.OPPKEY_VIEWER_PASSWORD;
@@ -135,25 +135,33 @@ app.get("/login", async (req, res) => {
     req.session.isLoggedIn = true;
     res.redirect("/viewer");
   }
-});
+}); */
 
 // viewer end point
 app.get("/viewer", (req, res) => {
+
+  // res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+  // res.setHeader("Pragma", "no-cache");
+  // res.setHeader("Expires", "0");
+  res.render("viewer");
+
   // reject function in case of no session authorization
-  const reject = () => {
-    res.setHeader("www-authenticate", "Basic");
-    res.sendStatus(401);
-  };
+  // const reject = () => {
+  //   res.setHeader("www-authenticate", "Basic");
+  //   res.sendStatus(401);
+  // };
   // if user session is logged in, return viewer. if not, return rejection
-  if (req.session.isLoggedIn) {
-    res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-    res.setHeader("Pragma", "no-cache");
-    res.setHeader("Expires", "0");
-    res.render("viewer");
-  } else {
-    return reject();
-  }
-});
+  // if (req.session.isLoggedIn) {
+  //   res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+  //   res.setHeader("Pragma", "no-cache");
+  //   res.setHeader("Expires", "0");
+  //   res.render("viewer");
+  // } else {
+  //   return reject();
+  // }
+}
+
+);
 
 // endpoint for home page
 app.get("/", (req, res) => {
