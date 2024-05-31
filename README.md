@@ -448,11 +448,4 @@ CLIENT_SECRET=<client secret for your client id for the platform API>
 PRIVATE_KEY="<long private key for the viewer>"
 ```
 
-## Deploy Your Own Demo on Vercel
-
-Please refer to the project [oppkey-ricoh360-viewer-demo-with-login](https://github.com/codetricity/oppkey-ricoh360-viewer-demo-with-login)
- for a variation of this project with:
-
-* `vercel.json` file
-* local login example to secure your public site
 
