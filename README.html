@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>readme</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="README_files/libs/clipboard/clipboard.min.js"></script>
+<script src="README_files/libs/quarto-html/quarto.js"></script>
+<script src="README_files/libs/quarto-html/popper.min.js"></script>
+<script src="README_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="README_files/libs/quarto-html/anchor.min.js"></script>
+<link href="README_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="README_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="README_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="README_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="README_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="ricoh360-viewer-api-demo" class="level1">
+<h1>RICOH360 Viewer API Demo</h1>
+<section id="live-site-httpsr360.oppget.com" class="level2">
+<h2 class="anchored" data-anchor-id="live-site-httpsr360.oppget.com">Live site: <a href="https://r360.oppget.com/">https://r360.oppget.com/</a></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/login_screen2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">login screen</figcaption>
+</figure>
+</div>
+<p>Contact Oppkey for login to public cloud-based site. Refer to code on GitHub repository <a href="https://github.com/codetricity/oppkey-ricoh360-viewer-demo-with-login">oppkey-ricoh360-viewer-demo-with-login</a> for an example showing how to deploy to Vercel with basic authentication login.</p>
+</section>
+<section id="features" class="level2">
+<h2 class="anchored" data-anchor-id="features">Features</h2>
+<section id="split-screen-and-image-enhancement" class="level3">
+<h3 class="anchored" data-anchor-id="split-screen-and-image-enhancement">Split Screen and Image Enhancement</h3>
+<p>Pre-built split screen component shown using RICOH’s included image enhancement technology.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/split_screen2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">split screen</figcaption>
+</figure>
+</div>
+</section>
+<section id="navigation" class="level3">
+<h3 class="anchored" data-anchor-id="navigation">Navigation</h3>
+<p>Navigation controls at bottom of screen allow viewer to select Zoom In, Zoom Out, Auto Rotate, Home Position, Enter Full Screen, Enter Cropping, and Enter Drawing.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/nav_panel.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">navigation panel</figcaption>
+</figure>
+</div>
+</section>
+<section id="annotation" class="level3">
+<h3 class="anchored" data-anchor-id="annotation">Annotation</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/annotate_menu.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">annotate menu</figcaption>
+</figure>
+</div>
+<p>Written notes and simple drawings appear in viewer.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/annotate.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">annotate</figcaption>
+</figure>
+</div>
+</section>
+<section id="cropping" class="level3">
+<h3 class="anchored" data-anchor-id="cropping">Cropping</h3>
+<p>Key portions of the 360° image can be cropped and saved locally.</p>
+<p>Choose Enter Cropping</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/nav_panel_crop.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">enter cropping</figcaption>
+</figure>
+</div>
+<p>Select area</p>
+<p><img src="readme_assets/crop_orig_image.png" class="img-fluid" alt="original image"> <img src="readme_assets/crop_area.png" class="img-fluid" alt="crop area"></p>
+<p>Save local</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/crop_done.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">done</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="demo-overview" class="level2">
+<h2 class="anchored" data-anchor-id="demo-overview">Demo Overview</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/slides/01_overview.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Demo Overview</figcaption>
+</figure>
+</div>
+<p>The demo is intended to be a live hosted site on AWS or Vercel. It consists of a backend server and a front end web application. The server can be run on a laptop with node.</p>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/slides/02_process.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">process steps</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/slides/03_step_1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">step 1: go to business web app</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/slides/04_step_2_load_viewer.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">step 2: load ricoh viewer</figcaption>
+</figure>
+</div>
+<p>The token for the viewer is not the same as the token generated for the RICOH360 Platform Content API.</p>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/slides/05_generate_content_api_token.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">step 3: generate content API</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/slides/06_step_4_blur_api.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">step 4: combine viewer blur with button</figcaption>
+</figure>
+</div>
+<section id="running-demo-locally-on-a-laptop-or-computer" class="level3">
+<h3 class="anchored" data-anchor-id="running-demo-locally-on-a-laptop-or-computer">running demo locally on a laptop or computer</h3>
+<p>Prior to running locally, you will need obtain a client id, client secret, and private key from RICOH and set the information in <code>secrets.env</code>. Oppkey can assist partners in the setup. If the <code>secrets.env</code> file is not set up properly, the application will fail to run.</p>
+<p>Full <code>secrets.env</code> used by Oppkey is available <a href="https://github.com/codetricity/oppkey-ricoh-viewer-credentials/blob/main/README.md">here</a>. The private key, client id, and client secret are in a private GitHub repo. If you are a RICOH staff or partner and have authorization to use the Oppkey client id, private key, and client secret, then contact Oppkey and we will send you the file. Otherwise, you will need to use your own keys that you got from RICOH.</p>
+<p>RICOH Viewer API with Node.js/Express.js &amp; EJS templating</p>
+<ol type="1">
+<li><a href="#project-structure">Project Structure</a></li>
+<li><a href="#getting-the-app-running">Getting the app running</a></li>
+<li><a href="#how-it-works">How It Works</a></li>
+<li><a href="#environment-variables">Environment Variables</a></li>
+</ol>
+</section>
+</section>
+<section id="project-structure" class="level2">
+<h2 class="anchored" data-anchor-id="project-structure">Project Structure</h2>
+<ul>
+<li><strong>ricoh-viewer_testing</strong>: The main project directory
+<ul>
+<li><strong>views/</strong>: Folder that holds view/HTML files (EJS markdown files)
+<ul>
+<li><strong>index.ejs</strong>: Home/landing page template</li>
+<li><strong>viewer.ejs</strong>: Viewer page template</li>
+</ul></li>
+<li><strong>index.js</strong>: File where server side functions and API endpoints to these functions are held</li>
+</ul></li>
+</ul>
+</section>
+<section id="getting-the-app-running" class="level2">
+<h2 class="anchored" data-anchor-id="getting-the-app-running">Getting the app running</h2>
+<ol type="1">
+<li>Install Node.js : https://nodejs.org/en - Note that Oppkey uses <a href="https://github.com/nvm-sh/nvm">nvm</a> to manage node versions. However, it may be simpler for you to install node straight from the node site.</li>
+<li>In a new terminal in the root directory of the project, run <code>npm install</code></li>
+<li>Run <code>npm run start</code>, the app should start locally on port 3000, <code>http://localhost:3000</code></li>
+</ol>
+</section>
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How it Works</h2>
+<ul>
+<li><a href="https://docs.ricoh360.com/partners/">RICOH Partner Technical Documentation Site</a> - requires login</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="readme_assets/docs_overview.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">docs overview</figcaption>
+</figure>
+</div>
+<section id="server-side-functions" class="level3">
+<h3 class="anchored" data-anchor-id="server-side-functions">Server-side functions</h3>
+<section id="createtoken" class="level4">
+<h4 class="anchored" data-anchor-id="createtoken">createToken()</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> privatekey <span class="op">=</span> <span class="vs">`-----BEGIN PRIVATE KEY-----</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;client private key&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="vs">-----END PRIVATE KEY-----`</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> createToken <span class="op">=</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> payload <span class="op">=</span> {</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    client_id<span class="op">:</span> <span class="op">&lt;</span>your client id<span class="op">&gt;,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> accessToken <span class="op">=</span> jwt<span class="op">.</span><span class="fu">sign</span>(payload<span class="op">,</span> privatekey<span class="op">,</span> {</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    algorithm<span class="op">:</span> <span class="st">"RS256"</span><span class="op">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    expiresIn<span class="op">:</span> <span class="st">"60m"</span><span class="op">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> accessToken<span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>createToken()</code> uses a payload object with your clientID and optionally your groupID</li>
+<li>Using <a href="https://www.npmjs.com/package/jsonwebtoken">jsonwebtoken package</a>, you create and return an access token with an encryption algorithm that expires in a certain time (60 minutes)</li>
+<li>This function will be called client side via the API endpoint for this function and used in a callback function for Ricoh’s viewer API</li>
+</ul>
+</section>
+<section id="getcontent" class="level4">
+<h4 class="anchored" data-anchor-id="getcontent">getContent()</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> clientId <span class="op">=</span> <span class="st">"&lt;your client id&gt;"</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> clientSecret <span class="op">=</span> <span class="st">"&lt;your client secret&gt;"</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> getContent <span class="op">=</span> <span class="kw">async</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tokenEndpoint <span class="op">=</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://saas-prod.auth.us-west-2.amazoncognito.com/oauth2/token"</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> auth <span class="op">=</span> <span class="bu">Buffer</span><span class="op">.</span><span class="fu">from</span>(<span class="vs">`</span><span class="sc">${</span>clientId<span class="sc">}</span><span class="vs">:</span><span class="sc">${</span>clientSecret<span class="sc">}</span><span class="vs">`</span>)<span class="op">.</span><span class="fu">toString</span>(<span class="st">"base64"</span>)<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> requestData <span class="op">=</span> {</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    method<span class="op">:</span> <span class="st">"POST"</span><span class="op">,</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    headers<span class="op">:</span> {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Content-Type"</span><span class="op">:</span> <span class="st">"application/x-www-form-urlencoded"</span><span class="op">,</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      Authorization<span class="op">:</span> <span class="vs">`Basic </span><span class="sc">${</span>auth<span class="sc">}</span><span class="vs">`</span><span class="op">,</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    body<span class="op">:</span> <span class="kw">new</span> <span class="fu">URLSearchParams</span>({</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      grant_type<span class="op">:</span> <span class="st">"client_credentials"</span><span class="op">,</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>      scope<span class="op">:</span> <span class="st">"all/read"</span><span class="op">,</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tokenResponse <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(tokenEndpoint<span class="op">,</span> requestData)<span class="op">;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tokenObject <span class="op">=</span> <span class="cf">await</span> tokenResponse<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> res <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="st">"https://api.ricoh360.com/contents?limit=3"</span><span class="op">,</span> {</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    method<span class="op">:</span> <span class="st">"GET"</span><span class="op">,</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    headers<span class="op">:</span> {</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>      Authorization<span class="op">:</span> <span class="st">"Bearer "</span> <span class="op">+</span> tokenObject<span class="op">.</span><span class="at">access_token</span><span class="op">,</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> data <span class="op">=</span> <span class="cf">await</span> res<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> data<span class="op">;</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>This function takes your clientID and clientSecret, turns it into base64 string format and sends a post request to https://saas-prod.auth.us-west-2.amazoncognito.com/oauth2/token (set as tokenEndpoint) to get a token to use for Ricoh content API</li>
+<li>After getting the token response, it creates another post request to Ricoh content API with the token as authorization and returning the data</li>
+</ul>
+</section>
+</section>
+<section id="server-side-endpoints" class="level3">
+<h3 class="anchored" data-anchor-id="server-side-endpoints">Server-side endpoints</h3>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section">/</h4>
+<pre><code>app.get("/", (req, res) =&gt; {
+  res.render("index");
+});</code></pre>
+<p>This endpoint returns the EJS template file (index.ejs) in ./views</p>
+</section>
+<section id="viewer" class="level4">
+<h4 class="anchored" data-anchor-id="viewer">/viewer</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">get</span>(<span class="st">"/viewer"</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">render</span>(<span class="st">"viewer"</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Calls up the main viewer with the split view, transformations, and content.</p>
+</section>
+<section id="token" class="level4">
+<h4 class="anchored" data-anchor-id="token">/token</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">get</span>(<span class="st">"/token"</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> token <span class="op">=</span> <span class="fu">createToken</span>()<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">status</span>(<span class="dv">200</span>)<span class="op">.</span><span class="fu">send</span>(token)<span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This endpoint calls on the createToken() server-side function and returns the token</p>
+</section>
+<section id="content" class="level4">
+<h4 class="anchored" data-anchor-id="content">/content</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>app<span class="op">.</span><span class="fu">get</span>(<span class="st">"/content"</span><span class="op">,</span> <span class="kw">async</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> test <span class="op">=</span> <span class="cf">await</span> <span class="fu">getContent</span>()<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  res<span class="op">.</span><span class="fu">status</span>(<span class="dv">200</span>)<span class="op">.</span><span class="fu">send</span>(test)<span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This endpoint calls on the getContent() async function and returns the content data which is needed by the viewer.</p>
+</section>
+</section>
+<section id="client-side-in-.viewsindex.ejs" class="level3">
+<h3 class="anchored" data-anchor-id="client-side-in-.viewsindex.ejs">Client-side (in ./views/index.ejs)</h3>
+<section id="fetchcontent" class="level4">
+<h4 class="anchored" data-anchor-id="fetchcontent">fetchContent</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fetchContent <span class="op">=</span> <span class="kw">async</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// fetch content from /content endpoint and store data in const data</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> res <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="st">"/content"</span><span class="op">,</span> {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    method<span class="op">:</span> <span class="st">"GET"</span><span class="op">,</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    headers<span class="op">:</span> {</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Content-Type"</span><span class="op">:</span> <span class="st">"application/x-www-form-urlencoded"</span><span class="op">,</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> data <span class="op">=</span> <span class="cf">await</span> res<span class="op">.</span><span class="fu">json</span>()<span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// populate buttons on left pane list</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> leftList <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"leftList"</span>)<span class="op">;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> data<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (data[i]<span class="op">.</span><span class="at">status</span> <span class="op">===</span> <span class="st">"uploaded"</span>) {</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data[i])<span class="op">;</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> listItem <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"li"</span>)<span class="op">;</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>      listItem<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;div&gt;</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;img src="</span><span class="sc">${</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>          data[i]<span class="op">.</span><span class="at">thumbnail_url</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="sc">}</span><span class="vs">" onclick="viewer.switchScene({ contentId: '</span><span class="sc">${</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        data[i]<span class="op">.</span><span class="at">content_id</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>      <span class="sc">}</span><span class="vs">'},</span><span class="sc">${</span><span class="dv">0</span><span class="sc">}</span><span class="vs">)"&gt;</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;button type="button" onclick="viewer.switchScene({ contentId: '</span><span class="sc">${</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>          data[i]<span class="op">.</span><span class="at">content_id</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="sc">}</span><span class="vs">',transform:'enhancement'},</span><span class="sc">${</span><span class="dv">0</span><span class="sc">}</span><span class="vs">)"&gt;</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="vs">          Enhance</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/button&gt;</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;button type="button" onclick="viewer.switchScene({ contentId: '</span><span class="sc">${</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>          data[i]<span class="op">.</span><span class="at">content_id</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>        <span class="sc">}</span><span class="vs">',transform:'b_person'},</span><span class="sc">${</span><span class="dv">0</span><span class="sc">}</span><span class="vs">)"&gt;</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="vs">          Blur People</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/button&gt;</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;button type="button" onclick="viewer.switchScene({ contentId: '</span><span class="sc">${</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>          data[i]<span class="op">.</span><span class="at">content_id</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        <span class="sc">}</span><span class="vs">',transform:'p_cubic'},</span><span class="sc">${</span><span class="dv">0</span><span class="sc">}</span><span class="vs">)"&gt;</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="vs">          Cubic View</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/button&gt;</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>      leftList<span class="op">.</span><span class="fu">append</span>(listItem)<span class="op">;</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>  <span class="co">// populate buttons on right pane list</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> rightList <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"rightList"</span>)<span class="op">;</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> data<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (data[i]<span class="op">.</span><span class="at">status</span> <span class="op">===</span> <span class="st">"uploaded"</span>) {</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data[i])<span class="op">;</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>      <span class="kw">const</span> listItem <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"li"</span>)<span class="op">;</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>      listItem<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`&lt;div&gt;</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;img src="</span><span class="sc">${</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>          data[i]<span class="op">.</span><span class="at">thumbnail_url</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>        <span class="sc">}</span><span class="vs">" onclick="viewer.switchScene({ contentId: '</span><span class="sc">${</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>        data[i]<span class="op">.</span><span class="at">content_id</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>      <span class="sc">}</span><span class="vs">'},</span><span class="sc">${</span><span class="dv">1</span><span class="sc">}</span><span class="vs">)"&gt;</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;button type="button" onclick="viewer.switchScene({ contentId: '</span><span class="sc">${</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>          data[i]<span class="op">.</span><span class="at">content_id</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>        <span class="sc">}</span><span class="vs">',transform:'enhancement'},</span><span class="sc">${</span><span class="dv">1</span><span class="sc">}</span><span class="vs">)"&gt;</span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="vs">          Enhance</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/button&gt;</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;button type="button" onclick="viewer.switchScene({ contentId: '</span><span class="sc">${</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>          data[i]<span class="op">.</span><span class="at">content_id</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>        <span class="sc">}</span><span class="vs">',transform:'b_person'},</span><span class="sc">${</span><span class="dv">1</span><span class="sc">}</span><span class="vs">)"&gt;</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="vs">          Blur People</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/button&gt;</span></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;button type="button" onclick="viewer.switchScene({ contentId: '</span><span class="sc">${</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>          data[i]<span class="op">.</span><span class="at">content_id</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>        <span class="sc">}</span><span class="vs">',transform:'p_cubic'},</span><span class="sc">${</span><span class="dv">1</span><span class="sc">}</span><span class="vs">)"&gt;</span></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="vs">          Cubic View</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;/button&gt;</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>      rightList<span class="op">.</span><span class="fu">append</span>(listItem)<span class="op">;</span></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>fetchContent()</code> makes a async get request to the backend endpoint /content and returns content data and populates listing of images with transform buttons</p>
+</section>
+<section id="fetchtoken" class="level4">
+<h4 class="anchored" data-anchor-id="fetchtoken">fetchToken()</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fetchToken <span class="op">=</span> <span class="kw">async</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> res <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(<span class="st">"/token"</span><span class="op">,</span> {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">method</span><span class="op">:</span> <span class="st">"GET"</span><span class="op">,</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">headers</span><span class="op">:</span> {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Content-Type"</span><span class="op">:</span> <span class="st">"application/x-www-form-urlencoded"</span><span class="op">,</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> data <span class="op">=</span> <span class="cf">await</span> res<span class="op">.</span><span class="fu">text</span>()<span class="op">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> data<span class="op">;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>fetchToken()</code> makes a async get request to the backend endpoint /token and returns a token</p>
+</section>
+<section id="ui" class="level4">
+<h4 class="anchored" data-anchor-id="ui">ui</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> ui <span class="op">=</span> {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  cropping<span class="op">:</span> {</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    horizontalMargin<span class="op">:</span> <span class="dv">15</span><span class="op">,</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    verticalMargin<span class="op">:</span> <span class="dv">75</span><span class="op">,</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  toolbar<span class="op">:</span> {</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    isHidden<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    cancelButton<span class="op">:</span> {</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>      label<span class="op">:</span> <span class="st">"Cancel"</span><span class="op">,</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    checkButton<span class="op">:</span> {</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      label<span class="op">:</span> <span class="st">"Done"</span><span class="op">,</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    autoRotateButton<span class="op">:</span> {</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>      isHidden<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>      label<span class="op">:</span> <span class="st">"Auto Rotate"</span><span class="op">,</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    croppingButton<span class="op">:</span> {</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      isHidden<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>      enterLabel<span class="op">:</span> <span class="st">"Enter Cropping"</span><span class="op">,</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>      exitLabel<span class="op">:</span> <span class="st">"Exit Cropping"</span><span class="op">,</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    drawingButton<span class="op">:</span> {</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>      isHidden<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>      enterLabel<span class="op">:</span> <span class="st">"Enter Drawing"</span><span class="op">,</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>      exitLabel<span class="op">:</span> <span class="st">"Exit Drawing"</span><span class="op">,</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    fullScreenButton<span class="op">:</span> {</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>      isHidden<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>      enterLabel<span class="op">:</span> <span class="st">"Enter Full Screen"</span><span class="op">,</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>      exitLabel<span class="op">:</span> <span class="st">"Exit Full Screen"</span><span class="op">,</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    homePositionButton<span class="op">:</span> {</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>      isHidden<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>      label<span class="op">:</span> <span class="st">"Home Position"</span><span class="op">,</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    liveStreamingControlButtons<span class="op">:</span> {</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>      isHidden<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>      startLabel<span class="op">:</span> <span class="st">"Start Streaming"</span><span class="op">,</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>      stopLabel<span class="op">:</span> <span class="st">"Stop Streaming"</span><span class="op">,</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>      speakerOnLabel<span class="op">:</span> <span class="st">"Speaker On"</span><span class="op">,</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>      speakerOffLabel<span class="op">:</span> <span class="st">"Speaker Off"</span><span class="op">,</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    zoomControlButtons<span class="op">:</span> {</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>      isHidden<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>      zoomInLabel<span class="op">:</span> <span class="st">"Zoom In"</span><span class="op">,</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>      zoomOutLabel<span class="op">:</span> <span class="st">"Zoom Out"</span><span class="op">,</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>  tooltip<span class="op">:</span> {</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    isHidden<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>  verticalPanel<span class="op">:</span> {</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>    isHidden<span class="op">:</span> <span class="kw">false</span><span class="op">,</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>    topMargin<span class="op">:</span> <span class="dv">25</span><span class="op">,</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Const ui is a parameter that is passed into the viewer object</li>
+<li>Allows definition and hiding/showing of ui buttons and functionalities</li>
+</ul>
+</section>
+<section id="oncropped" class="level4">
+<h4 class="anchored" data-anchor-id="oncropped">onCropped</h4>
+<div class="sourceCode" id="cb10"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> onCropped <span class="op">=</span> <span class="kw">async</span> (url) <span class="kw">=&gt;</span> {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> image <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(url)<span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> imageBlob <span class="op">=</span> <span class="cf">await</span> image<span class="op">.</span><span class="fu">blob</span>()<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> imageURL <span class="op">=</span> URL<span class="op">.</span><span class="fu">createObjectURL</span>(imageBlob)<span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> downloadLink <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">'a'</span>)<span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  downloadLink<span class="op">.</span><span class="at">href</span> <span class="op">=</span> imageURL<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  downloadLink<span class="op">.</span><span class="at">download</span> <span class="op">=</span> <span class="st">'cropped_image.jpeg'</span><span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">document</span><span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="fu">appendChild</span>(downloadLink)<span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  downloadLink<span class="op">.</span><span class="fu">click</span>()<span class="op">;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="bu">document</span><span class="op">.</span><span class="at">body</span><span class="op">.</span><span class="fu">removeChild</span>(downloadLink)<span class="op">;</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the viewer, there is a crop function, that crop function passes in the cropped image URL to this callback function and downloads the cropped image to your computer.</p>
+</section>
+<section id="viewer-1" class="level4">
+<h4 class="anchored" data-anchor-id="viewer-1">viewer</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> viewer <span class="op">=</span> <span class="kw">new</span> <span class="fu">RICOH360Viewer</span>({</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  divId<span class="op">:</span> <span class="st">"viewer"</span><span class="op">,</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  onFetchToken<span class="op">:</span> fetchToken<span class="op">,</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  isCubemapEnabled<span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  ui<span class="op">,</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  onSelected<span class="op">:</span> (index) <span class="kw">=&gt;</span> {</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">"selected"</span><span class="op">,</span> index)<span class="op">;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>viewer<span class="op">.</span><span class="fu">start</span>({</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  contentId<span class="op">:</span> <span class="st">"6b004f76-60cf-4f14-ae3c-49b7dee4aca2"</span><span class="op">,</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  transform<span class="op">:</span> <span class="st">"enhancement"</span><span class="op">,</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Viewer is Ricoh embedded viewer API</li>
+<li>Viewer is initialized by specific a divId to inject the viewer UI into, an onFetchToken function for authorization and a CubeMapEnabled</li>
+<li>Viewer is started with a contentID (call fetchContent() function to get contentIDs) and a transform value ie. “enhancement” or “undefined”</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="environment-variables" class="level2">
+<h2 class="anchored" data-anchor-id="environment-variables">Environment Variables</h2>
+<p>Create a <code>secrets.env</code> file in the root of the project with the following secrets:</p>
+<pre class="text"><code>CLIENT_ID=&lt;Your unique client id from RICOH for the platform API&gt;
+CLIENT_SECRET=&lt;client secret for your client id for the platform API&gt;
+PRIVATE_KEY="&lt;long private key for the viewer&gt;"</code></pre>
+</section>
+<section id="deploy-your-own-demo-on-vercel" class="level2">
+<h2 class="anchored" data-anchor-id="deploy-your-own-demo-on-vercel">Deploy Your Own Demo on Vercel</h2>
+<p>Please refer to the project <a href="https://github.com/codetricity/oppkey-ricoh360-viewer-demo-with-login">oppkey-ricoh360-viewer-demo-with-login</a> for a variation of this project with:</p>
+<ul>
+<li><code>vercel.json</code> file</li>
+<li>local login example to secure your public site</li>
+</ul>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
