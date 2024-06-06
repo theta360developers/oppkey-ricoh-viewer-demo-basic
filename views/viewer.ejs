@@ -179,13 +179,6 @@
             isHidden: false,
             label: "Home Position",
           },
-          liveStreamingControlButtons: {
-            isHidden: false,
-            startLabel: "Start Streaming",
-            stopLabel: "Stop Streaming",
-            speakerOnLabel: "Speaker On",
-            speakerOffLabel: "Speaker Off",
-          },
           zoomControlButtons: {
             isHidden: false,
             zoomInLabel: "Zoom In",
@@ -225,7 +218,7 @@
         },
         onCropped:onCropped
       });
-
+      // TODO: Remove hardcoded contentId
       // start viewer
       viewer.start({
         contentId: "6b004f76-60cf-4f14-ae3c-49b7dee4aca2",
