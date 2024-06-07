@@ -199,9 +199,9 @@
         const image = await fetch(url);
         const imageBlob = await image.blob();
         const imageURL = URL.createObjectURL(imageBlob);
-        const downloadLink = document.createElement('a');
+        const downloadLink = document.createElement("a");
         downloadLink.href = imageURL;
-        downloadLink.download = 'cropped_image.jpeg';
+        downloadLink.download = "cropped_image.jpeg";
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);
@@ -216,14 +216,35 @@
         onSelected: (index) => {
           console.log(index);
         },
-        onCropped:onCropped
+        onCropped: onCropped,
       });
-      // TODO: Remove hardcoded contentId
-      // start viewer
-      viewer.start({
-        contentId: "6b004f76-60cf-4f14-ae3c-49b7dee4aca2",
-        transform: "enhancement",
-      });
+
+
+      // as our app loads the viewer at start, we load 
+      // the initial contentID from the data as an example
+      // as we pull data the data again, this slows down the 
+      // initial app load, but makes it clear in the code
+      // below where the intial contentID is coming from.
+      // Change the code below to display the contentID
+      // of your choice
+   
+      const startViewer = async () => {
+        const res = await fetch("/content", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        });
+        const data = await res.json();
+        const initialContentId = data[0]["content_id"];
+
+        console.log("the initial content id is " + initialContentId);
+        viewer.start({
+          contentId: initialContentId,
+          transform: "enhancement",
+        });
+      };
+      startViewer();
 
       // call fetch content function to fetch content ids and populate buttons
       fetchContent();
