@@ -225,10 +225,16 @@
 
 
       // call fetch content function to fetch content ids and populate buttons
+      // and start the viewer
       fetchContent();
       
       // start viewer
-      const startViewer = async (initialContentId) => {
+      // function receives the initial contentId from fetchContent
+      // and grabs the data from the RICOH360 platform server with
+      // the `fetch("/content",...` endpoint
+      // the code for that endpoint is in ./index.js and uses
+      // a different token to get the content from the RICOH server
+      const startViewer = (initialContentId) => {
         console.log("the initial content id is " + initialContentId);
         viewer.start({
           contentId: initialContentId,
