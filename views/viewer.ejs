@@ -64,7 +64,7 @@
           },
         });
         const data = await res.json();
-
+        const initialContentId = data[0]["content_id"];
         // populate buttons on left pane list
         const leftList = document.getElementById("leftList");
         for (let i = 0; i < data.length; i++) {
@@ -128,6 +128,7 @@
             rightList.append(listItem);
           }
         }
+        startViewer(initialContentId);
       };
 
       // fetch token callback function to pass into viewer
@@ -220,34 +221,22 @@
       });
 
 
-      // as our app loads the viewer at start, we load 
-      // the initial contentID from the data as an example
-      // as we pull data the data again, this slows down the 
-      // initial app load, but makes it clear in the code
-      // below where the intial contentID is coming from.
-      // Change the code below to display the contentID
-      // of your choice
-   
-      const startViewer = async () => {
-        const res = await fetch("/content", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-        });
-        const data = await res.json();
-        const initialContentId = data[0]["content_id"];
 
+
+
+      // call fetch content function to fetch content ids and populate buttons
+      fetchContent();
+      
+      // start viewer
+      const startViewer = async (initialContentId) => {
         console.log("the initial content id is " + initialContentId);
         viewer.start({
           contentId: initialContentId,
           transform: "enhancement",
         });
       };
-      startViewer();
+      
 
-      // call fetch content function to fetch content ids and populate buttons
-      fetchContent();
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
