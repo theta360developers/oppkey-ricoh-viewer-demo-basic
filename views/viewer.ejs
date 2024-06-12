@@ -53,12 +53,11 @@
         </div>
       </div>
     </div>
-    // download the ricoh viewer from AWS 
-    // version v0.11.1 latest on June 10, 2024
-    // version v0.13.0, latest from June 11, 2024
+    // download the ricoh viewer from AWS // version v0.11.1 latest on June 10,
+    2024 // version v0.13.0, latest from June 11, 2024
     <script src="https://r360pf-prod-static.s3.us-west-2.amazonaws.com/viewer/v0.13.0/ricoh360-viewer.js"></script>
 
-   <script>    
+    <script>
       const fetchContent = async () => {
         // fetch content from /content endpoint and store data in const data
         const res = await fetch("/content", {
@@ -170,6 +169,11 @@
             enterLabel: "Enter Cropping",
             exitLabel: "Exit Cropping",
           },
+          annotationButton: {
+            isHidden: false,
+            enterLabel: "Use keyboard to annotate",
+            exitLabel: "Exit keyboard annotation",
+          },
           drawingButton: {
             isHidden: false,
             enterLabel: "Enter Drawing",
@@ -224,14 +228,10 @@
         onCropped: onCropped,
       });
 
-
-
-
-
       // call fetch content function to fetch content ids and populate buttons
       // and start the viewer
       fetchContent();
-      
+
       // start viewer
       // function receives the initial contentId from fetchContent
       // and grabs the data from the RICOH360 platform server with
@@ -245,8 +245,6 @@
           transform: "enhancement",
         });
       };
-      
-
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
