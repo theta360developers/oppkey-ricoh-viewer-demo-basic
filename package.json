@@ -1,7 +1,7 @@
 {
   "name": "ricoh-viewer-testing",
   "version": "1.0.0",
-  "description": "- https://ricoh360.notion.site/Instruction-Guide-for-Technical-Partners-596cbb3f4f5f467d85042df677e3b49c",
+  "description": "Demo of RICOH360 Viewer.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
