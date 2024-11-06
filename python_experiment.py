@@ -1,0 +1,88 @@
+from flask import Flask, jsonify, render_template
+import os
+import requests
+import jwt
+from dotenv import load_dotenv
+import base64
+
+load_dotenv("secrets.env")
+
+app = Flask(__name__)
+app.template_folder = "views"
+app.static_folder = "public"
+
+# Retrieve environment variables
+PRIVATE_KEY = os.getenv("PRIVATE_KEY")
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+
+
+# Function to query content from the RICOH360 API
+def get_content():
+    # Endpoint and authentication for AWS token
+    token_endpoint = "https://saas-prod.auth.us-west-2.amazoncognito.com/oauth2/token"
+    auth = base64.b64encode(f"{CLIENT_ID}:{CLIENT_SECRET}".encode()).decode("utf-8")
+    headers = {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": f"Basic {auth}",
+    }
+    body = {
+        "grant_type": "client_credentials",
+        "scope": "all/read"
+    }
+
+    # Request AWS token
+    token_response = requests.post(token_endpoint, headers=headers, data=body)
+    token_object = token_response.json()
+    access_token = token_object.get("access_token")
+
+    # Fetch content using the token
+    content_headers = {"Authorization": f"Bearer {access_token}"}
+    content_response = requests.get("https://api.ricoh360.com/contents?limit=50", headers=content_headers)
+    content_data = content_response.json()
+    return content_data
+
+
+# Function to create a JWT token for the viewer API
+def create_token():
+    payload = {
+        "client_id": CLIENT_ID
+    }
+    token = jwt.encode(
+        payload,
+        PRIVATE_KEY,
+        algorithm="RS256"
+    )
+    # Decode to UTF-8 if necessary
+    return token if isinstance(token, str) else token.decode("utf-8")
+
+
+# Route to get the viewer access token
+@app.route("/token")
+def token():
+    token = create_token()
+    return jsonify(token=token)
+
+
+# Route to fetch content
+@app.route("/content")
+def content():
+    content_data = get_content()
+    return jsonify(content_data)
+
+
+# Route for the viewer
+@app.route("/viewer")
+def viewer():
+    return render_template("viewer.ejs")
+
+
+# Route for the homepage
+@app.route("/")
+def index():
+    return render_template("index.ejs")
+
+
+if __name__ == "__main__":
+    app.run(port=3000, debug=True)
+    print("Open browser at http://localhost:3000 or http://127.0.0.1:3000")
