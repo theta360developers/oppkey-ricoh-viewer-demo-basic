@@ -20,16 +20,13 @@ CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 # Function to query content from the RICOH360 API
 def get_content():
     # Endpoint and authentication for AWS token
-    token_endpoint = "https://saas-prod.auth.us-west-2.amazoncognito.com/oauth2/token"
-    auth = base64.b64encode(f"{CLIENT_ID}:{CLIENT_SECRET}".encode()).decode("utf-8")
+    token_endpoint = "https://saas-prod.auth.us-west-2.amazoncognito.com/oauth2/token"  # noqa: E501
+    auth = base64.b64encode(f"{CLIENT_ID}:{CLIENT_SECRET}".encode()).decode("utf-8")  # noqa: E501
     headers = {
         "Content-Type": "application/x-www-form-urlencoded",
         "Authorization": f"Basic {auth}",
     }
-    body = {
-        "grant_type": "client_credentials",
-        "scope": "all/read"
-    }
+    body = {"grant_type": "client_credentials", "scope": "all/read"}
 
     # Request AWS token
     token_response = requests.post(token_endpoint, headers=headers, data=body)
@@ -38,21 +35,17 @@ def get_content():
 
     # Fetch content using the token
     content_headers = {"Authorization": f"Bearer {access_token}"}
-    content_response = requests.get("https://api.ricoh360.com/contents?limit=50", headers=content_headers)
+    content_response = requests.get(
+        "https://api.ricoh360.com/contents?limit=50", headers=content_headers
+    )
     content_data = content_response.json()
     return content_data
 
 
 # Function to create a JWT token for the viewer API
 def create_token():
-    payload = {
-        "client_id": CLIENT_ID
-    }
-    token = jwt.encode(
-        payload,
-        PRIVATE_KEY,
-        algorithm="RS256"
-    )
+    payload = {"client_id": CLIENT_ID}
+    token = jwt.encode(payload, PRIVATE_KEY, algorithm="RS256")
     # Decode to UTF-8 if necessary
     return token if isinstance(token, str) else token.decode("utf-8")
 
