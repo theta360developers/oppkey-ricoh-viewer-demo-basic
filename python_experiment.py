@@ -51,18 +51,21 @@ def create_token():
     return token if isinstance(token, str) else token.decode("utf-8")
 
 
-# Route for the viewer
-@app.route("/viewer")
-def viewer():
+# Route for the homepage with viewer
+# inspect views/flask_viewer.html for information on how to use the viewer.
+@app.route("/")
+def index():
+    """Send token and data to web page
+    token is created from the JWT Python package (see requirements.txt for module info)
+    You need a Private Key from RICOH in order to sign the token and use it with the
+    RICOH360 Viewer.
+
+    The token is sent to views/flask_viewer.html along with the data
+    about the THETA images stored in the RICOH360 Cloud
+    """
     token = create_token()
     content_data = get_content()
     return render_template("flask_viewer.html", token=token, content_data=content_data)
-
-
-# Route for the homepage
-@app.route("/")
-def index():
-    return render_template("viewer.ejs")
 
 
 if __name__ == "__main__":
