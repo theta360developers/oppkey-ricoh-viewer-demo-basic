@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, render_template
 import os
 import requests
 import jwt
@@ -47,33 +47,22 @@ def create_token():
     payload = {"client_id": CLIENT_ID}
     token = jwt.encode(payload, PRIVATE_KEY, algorithm="RS256")
     # Decode to UTF-8 if necessary
+
     return token if isinstance(token, str) else token.decode("utf-8")
-
-
-# Route to get the viewer access token
-@app.route("/token")
-def token():
-    token = create_token()
-    return jsonify(token=token)
-
-
-# Route to fetch content
-@app.route("/content")
-def content():
-    content_data = get_content()
-    return jsonify(content_data)
 
 
 # Route for the viewer
 @app.route("/viewer")
 def viewer():
-    return render_template("viewer.ejs")
+    token = create_token()
+    content_data = get_content()
+    return render_template("flask_viewer.html", token=token, content_data=content_data)
 
 
 # Route for the homepage
 @app.route("/")
 def index():
-    return render_template("index.ejs")
+    return render_template("viewer.ejs")
 
 
 if __name__ == "__main__":

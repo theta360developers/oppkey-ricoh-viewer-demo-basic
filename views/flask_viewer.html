@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python RICOH360 Viewer Example</title>
+</head>
+<body>
+  <div style="padding: 20px">
+    <div
+      style="
+        position: relative;
+        width: 100%;
+        height: 650px;
+        background-color: #2a303c;">
+      <div id="viewer"></div>
+    </div>
+  <h1>Python Example for RICOH360 Viewer</h1>
+  <h2>token for viewer</h2>
+  {{token}}
+  <h2>Viewer Data</h2>
+  {{content_data}}
+  <script src="https://r360pf-prod-static.s3.us-west-2.amazonaws.com/viewer/v0.15.0/ricoh360-viewer.js"></script>
+  <script>
+  const startViewer = (initialContentId) => {
+  console.log("the initial content id is " + initialContentId);
+  viewer.start({
+    contentId: initialContentId,
+    // contentId: "c6eac34b-9bdc-4ba1-81af-29470fdead79",
+    transform: "enhancement",
+  });
+  };
+
+  const fetchToken = () => "{{token}}";
+
+  const ui = {
+        cropping: {
+          horizontalMargin: 15,
+          verticalMargin: 75,
+        },
+        toolbar: {
+          isHidden: false,
+          cancelButton: {
+            label: "Cancel",
+          },
+          checkButton: {
+            label: "Done",
+          },
+          autoRotateButton: {
+            isHidden: false,
+            label: "Auto Rotate",
+          },
+          croppingButton: {
+            isHidden: false,
+            enterLabel: "Enter Cropping",
+            exitLabel: "Exit Cropping",
+          },
+          annotationButton: {
+            isHidden: false,
+            enterLabel: "Use keyboard to annotate",
+            exitLabel: "Exit keyboard annotation",
+          },
+          drawingButton: {
+            isHidden: false,
+            enterLabel: "Enter Drawing",
+            exitLabel: "Exit Drawing",
+          },
+          fullScreenButton: {
+            isHidden: false,
+            enterLabel: "Enter Full Screen",
+            exitLabel: "Exit Full Screen",
+          },
+          homePositionButton: {
+            isHidden: false,
+            label: "Home Position",
+          },
+          zoomControlButtons: {
+            isHidden: false,
+            zoomInLabel: "Zoom In",
+            zoomOutLabel: "Zoom Out",
+          },
+        },
+        tooltip: {
+          isHidden: false,
+        },
+        verticalPanel: {
+          isHidden: false,
+          topMargin: 25,
+        },
+      };
+      // on crop function, crops and downloads image selection
+      const onCropped = async (url) => {
+        const image = await fetch(url);
+        const imageBlob = await image.blob();
+        const imageURL = URL.createObjectURL(imageBlob);
+        const downloadLink = document.createElement("a");
+        downloadLink.href = imageURL;
+        downloadLink.download = "cropped_image.jpeg";
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+      };
+
+  // create new viewer with UI, fetchtoken callback function and onCrop callback function
+  const viewer = new RICOH360Viewer({
+  divId: "viewer",
+  onFetchToken: fetchToken,
+  isCubemapEnabled: true,
+  ui,
+  onSelected: (index) => {
+    console.log("index: ", index);
+  },
+  onCropped: onCropped,
+});
+  startViewer("c6eac34b-9bdc-4ba1-81af-29470fdead79");
+  </script>
+</body>
+</html>
