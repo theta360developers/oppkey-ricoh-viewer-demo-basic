@@ -2,3 +2,4 @@ node_modules
 secrets.env
 README.pdf
 README_files
+venv
