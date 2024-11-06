@@ -6,7 +6,7 @@
 
 ## Other
 
-* Official RICOH360 Documentation: https://docs.ricoh360.com/
+* Official RICOH360 Documentation: <https://docs.ricoh360.com/>
 * Live site: [https://r360.oppget.com/](https://r360.oppget.com/)
 
 ## Python Experiment
