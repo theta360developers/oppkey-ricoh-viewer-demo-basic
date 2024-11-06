@@ -20,8 +20,14 @@
   {{token}}
   <h2>Viewer Data</h2>
   {{content_data}}
+  <h1>Multiple Viewer</h1>
+  <div id="viewers-container" style="display: flex; flex-wrap: wrap; gap: 20px;"></div>
+
   <script src="https://r360pf-prod-static.s3.us-west-2.amazonaws.com/viewer/v0.15.0/ricoh360-viewer.js"></script>
   <script>
+    const contentData = {{ content_data | tojson }};
+    console.log(contentData)
+
   const startViewer = (initialContentId) => {
   console.log("the initial content id is " + initialContentId);
   viewer.start({
@@ -112,7 +118,12 @@
   },
   onCropped: onCropped,
 });
-  startViewer("c6eac34b-9bdc-4ba1-81af-29470fdead79");
-  </script>
+contentData.forEach((item) => {
+    
+    viewer.start({
+        contentId: item.content_id
+    });
+});
+          </script>
 </body>
 </html>
