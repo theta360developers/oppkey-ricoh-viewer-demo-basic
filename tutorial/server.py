@@ -2,6 +2,9 @@ from flask import Flask, render_template
 import jwt
 import os
 from dotenv import load_dotenv
+import requests
+import base64
+
 
 load_dotenv("secrets.env")
 
@@ -23,10 +26,42 @@ def create_token():
     return token if isinstance(token, str) else token.decode("utf-8")
 
 
+def get_token_for_cloud_content():
+    # Endpoint and authentication for AWS token
+    token_endpoint = "https://saas-prod.auth.us-west-2.amazoncognito.com/oauth2/token"  # noqa: E501
+    auth = base64.b64encode(f"{CLIENT_ID}:{CLIENT_SECRET}".encode()).decode("utf-8")  # noqa: E501
+    headers = {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": f"Basic {auth}",
+    }
+    body = {"grant_type": "client_credentials", "scope": "all/read"}
+
+    # Request AWS token
+    token_response = requests.post(token_endpoint, headers=headers, data=body)
+    token_object = token_response.json()
+    ricoh_cloud_access_token = token_object.get("access_token")
+    return ricoh_cloud_access_token
+
+
+# Function to query content from the RICOH360 API
+def get_content():
+    cloud_content_token = get_token_for_cloud_content()
+    # Fetch content using the token
+    content_headers = {"Authorization": f"Bearer {cloud_content_token}"}
+    content_response = requests.get(
+        "https://api.ricoh360.com/contents?limit=1", headers=content_headers
+    )
+    content_data = content_response.json()
+    return content_data
+
+
 @app.route("/")
 def index():
     token = create_token()
-    return render_template("index.html",  token=token)
+    content_data = get_content()
+    contentId = content_data[0]["content_id"]
+    print(f"contentId: {contentId}")
+    return render_template("index.html",  token=token, contentId=contentId)
 
 
 if __name__ == "__main__":
