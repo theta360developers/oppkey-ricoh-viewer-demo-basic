@@ -60,7 +60,6 @@
           console.log("the initial content id is " + initialContentId);
           viewer.start({
               contentId: initialContentId,
-              // contentId: "c6eac34b-9bdc-4ba1-81af-29470fdead79",
               transform: "enhancement",
         });
         };
@@ -139,11 +138,7 @@
         const viewer = new RICOH360Viewer({
         divId: "viewer",
         onFetchToken: fetchToken,
-        isCubemapEnabled: true,
         ui,
-        onSelected: (index) => {
-          console.log("index: ", index);
-        },
         onCropped: onCropped,
       });
       data.forEach((item) => {
@@ -214,11 +209,8 @@
                   rightList.append(listItem);
                 }
               }
-              // startViewer("8ecf3d92-77a6-4def-8f90-0548365628ba");
+
               startViewer(initialContentId);
-
-
-            // fetch token callback function to pass into viewer
     </script>
   </body>
 </html>

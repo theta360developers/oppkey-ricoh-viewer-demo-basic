@@ -68,6 +68,13 @@ def index():
     return render_template("flask_viewer.html", token=token, content_data=content_data)
 
 
+@app.route("/minimum")
+def minimum():
+    token = create_token()
+    content_data = get_content()
+    return render_template("flask_minimum.html", token=token, content_data=content_data)
+
+
 if __name__ == "__main__":
     app.run(port=3000, debug=True)
     print("Open browser at http://localhost:3000 or http://127.0.0.1:3000")
