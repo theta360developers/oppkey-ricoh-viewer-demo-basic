@@ -30,13 +30,12 @@
     </div>
     <script src="https://r360pf-prod-static.s3.us-west-2.amazonaws.com/viewer/v0.15.0/ricoh360-viewer.js"></script>
     <script>
-          // eslint-disable-next-line
+          // token and content_data are passed from Flask
           const data = {{ content_data | tojson }};
           console.log(data)
-        const fetchToken = () => "{{token}}";
         const viewer = new RICOH360Viewer({
         divId: "viewer",
-        onFetchToken: fetchToken,
+        onFetchToken: () => "{{token}}",
       });
 
       const imageListElement = document.getElementById("thumbList");
