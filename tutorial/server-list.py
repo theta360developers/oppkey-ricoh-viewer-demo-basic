@@ -61,7 +61,8 @@ def index():
     contentIds = []
     for single_content in content_data:
         contentIds.append(single_content["content_id"])
-    return render_template("simple-list-challenge.html",  token=token, contentIds=contentIds)
+    # return render_template("simple-list-challenge.html",  token=token, contentIds=contentIds)
+    return render_template("list-with-transform.html",  token=token, contentIds=contentIds)
 
 
 if __name__ == "__main__":
