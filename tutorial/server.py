@@ -9,8 +9,7 @@ import base64
 load_dotenv("secrets.env")
 
 app = Flask(__name__)
-app.template_folder = "views"
-app.static_folder = "public"
+app.template_folder = "."
 
 # Retrieve environment variables
 PRIVATE_KEY = os.getenv("PRIVATE_KEY")
