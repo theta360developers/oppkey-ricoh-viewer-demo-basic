@@ -19,10 +19,9 @@
 
   
   {% for contentId in contentIds %}
-  <button onclick="switchViewerImage('{{contentId}}')"> 
-  <img src="{{thumburls[loop.index -1]}}" alt="thumbnail"
+  <img onclick="switchViewerImage('{{contentId}}')" src="{{thumburls[loop.index -1]}}" alt="thumbnail"
   style="width:80px;height: 40px;">
-</button>
+
   
   {% endfor %}
 
