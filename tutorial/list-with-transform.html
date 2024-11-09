@@ -17,8 +17,12 @@
   </div>
   <br>
 
+  
   {% for contentId in contentIds %}
-  <button onclick="switchViewerImage('{{contentId}}')"> {{ loop.index }}</button>
+  <img onclick="switchViewerImage('{{contentId}}')" src="{{thumburls[loop.index -1]}}" alt="thumbnail"
+  style="width:80px;height: 40px;">
+
+  
   {% endfor %}
 
   <div id="rightSwitchButton">right switch button should be here</div>
