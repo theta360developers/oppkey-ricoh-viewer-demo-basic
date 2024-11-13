@@ -1,9 +1,10 @@
-from flask import Flask, render_template, g
+from flask import Flask, render_template, request, session
 import jwt
 import os
 from dotenv import load_dotenv
 import requests
 import base64
+from config import Config
 
 
 load_dotenv("secrets.env")
@@ -39,14 +40,14 @@ def get_token_for_cloud_content():
     token_response = requests.post(token_endpoint, headers=headers, data=body)
     token_object = token_response.json()
     ricoh_cloud_access_token = token_object.get("access_token")
-    g.ricoh_cloud_token = ricoh_cloud_access_token
+    session["ricoh_cloud_token"] = ricoh_cloud_access_token
     return ricoh_cloud_access_token
 
 
 # Function to query content from the RICOH360 API
 def get_content():
     get_token_for_cloud_content()
-    cloud_content_token = g.get("ricoh_cloud_token")
+    cloud_content_token = session["ricoh_cloud_token"]
     # Fetch content using the token
     content_headers = {"Authorization": f"Bearer {cloud_content_token}"}
     content_response = requests.get(
@@ -74,12 +75,13 @@ def index():
                            )
 
 
-@app.route("/stage/<content_id>")
-def stage(content_id):
-    viewer_token = create_token()
-    cloud_token = g.get("ricoh_cloud_token")
+@app.route("/stage")
+def stage():
+    content_id = request.args.get('contentId')
+    viewer_token = request.args.get('viewerToken')
+    cloud_token = session["ricoh_cloud_token"]
 
-    print(f"token: {cloud_token}")
+    print(f"cloud token: {cloud_token}")
     return render_template("single_image.html",
                            token=viewer_token,
                            contentId=content_id,
@@ -87,5 +89,6 @@ def stage(content_id):
 
 
 if __name__ == "__main__":
+    app.config.from_object(Config)
     app.run(port=3000, debug=True)
     print("Open browser at http://localhost:3000 or http://127.0.0.1:3000")
