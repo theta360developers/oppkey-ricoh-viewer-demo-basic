@@ -1,5 +1,7 @@
 # Image Transformations From RICOH360 Cloud API
 
+![main gui](readme_assets/main_gui.png)
+
 You can perform transformations directly with the RICOH
 Cloud API and display it in the viewer.
 
