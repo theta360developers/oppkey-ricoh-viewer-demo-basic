@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, g
 import jwt
 import os
 from dotenv import load_dotenv
@@ -39,12 +39,14 @@ def get_token_for_cloud_content():
     token_response = requests.post(token_endpoint, headers=headers, data=body)
     token_object = token_response.json()
     ricoh_cloud_access_token = token_object.get("access_token")
+    g.ricoh_cloud_token = ricoh_cloud_access_token
     return ricoh_cloud_access_token
 
 
 # Function to query content from the RICOH360 API
 def get_content():
-    cloud_content_token = get_token_for_cloud_content()
+    get_token_for_cloud_content()
+    cloud_content_token = g.get("ricoh_cloud_token")
     # Fetch content using the token
     content_headers = {"Authorization": f"Bearer {cloud_content_token}"}
     content_response = requests.get(
@@ -69,6 +71,18 @@ def index():
                            token=token,
                            contentIds=contentIds,
                            thumburls=thumburls
+                           )
+
+
+@app.route("/stage/<content_id>")
+def stage(content_id):
+    viewer_token = create_token()
+    cloud_token = g.get("ricoh_cloud_token")
+
+    print(f"token: {cloud_token}")
+    return render_template("single_image.html",
+                           token=viewer_token,
+                           contentId=content_id,
                            )
 
 
