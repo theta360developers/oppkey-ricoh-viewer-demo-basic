@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://r360pf-prod-static.s3.us-west-2.amazonaws.com/viewer/v0.15.0/ricoh360-viewer.js"></script>
+  </head>
+  <body>
+    <div
+      style="
+        position: relative;
+        width: 100%;
+        height: 400px;
+        background-color: #2a303c;
+      "
+    >
+      <div id="viewer"></div>
+    </div>
+    <br />
+    <div class="flex flex-wrap">
+ 
+      <div class="font-bold text-lg pl-5 pt-2">right pane:</div>
+      <div class="p-2" id="rightSwitchButton">
+        right switch button should be here
+      </div>
+      <div class="p-2" id="rightEnhanceButton">
+        right enhance button should be here
+      </div>
+    </div>
+ 
+
+
+    <div class="flex flex-wrap">
+      {% for contentId in contentIds %}
+      <div class="p-2">
+        <img
+          onclick="switchViewerImage('{{contentId}}')"
+          src="{{thumburls[loop.index -1]}}"
+          alt="thumbnail"
+          style="width: 140px; height: 70px"
+        />
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class = "flex flex-wrap" id="stageButtons">
+
+    </div>
+    <h2 class="text-lg font-bold">Fun Test Information</h2>
+    <h3 class="font-bold">RICOH360 Viewer Token</h3>
+    <p>
+      There are two different tokens. The viewer token is created by PyJWT and
+      signed with the private key each company receives from RICOH. If the key
+      is not valid, there should be an error message in the console.
+    </p>
+    {{token}}
+    <hr />
+    <h3 class="font-bold">current contentId</h3>
+    The contentId is obtained from the RICOH Cloud. A URL cannot be sent to the
+    RICOH360 Viewer.
+    <div id="currentContentId">id should be here</div>
+
+    <script>
+      const enhanceRightImage = (contentId) => {
+        console.log("contentId for right pane: ", contentId);
+        viewer.switchScene(
+          {
+            contentId: contentId,
+            transform: "enhancement",
+          },
+          "1"
+        );
+      };
+      const switchRightImage = (contentId) => {
+        console.log("contentId for right pane: ", contentId);
+        viewer.switchScene(
+          {
+            contentId: contentId,
+          },
+          "1"
+        );
+      };
+      const ui = {
+        cropping: {
+          horizontalMargin: 15,
+          verticalMargin: 75,
+        },
+        toolbar: {
+          isHidden: false,
+          cancelButton: {
+            label: "Cancel",
+          },
+          checkButton: {
+            label: "Done",
+          },
+          autoRotateButton: {
+            isHidden: false,
+            label: "Auto Rotate",
+          },
+          croppingButton: {
+            isHidden: false,
+            enterLabel: "Enter Cropping",
+            exitLabel: "Exit Cropping",
+          },
+          annotationButton: {
+            isHidden: false,
+            enterLabel: "Use keyboard to annotate",
+            exitLabel: "Exit keyboard annotation",
+          },
+          drawingButton: {
+            isHidden: false,
+            enterLabel: "Enter Drawing",
+            exitLabel: "Exit Drawing",
+          },
+          fullScreenButton: {
+            isHidden: false,
+            enterLabel: "Enter Full Screen",
+            exitLabel: "Exit Full Screen",
+          },
+          homePositionButton: {
+            isHidden: false,
+            label: "Home Position",
+          },
+          zoomControlButtons: {
+            isHidden: false,
+            zoomInLabel: "Zoom In",
+            zoomOutLabel: "Zoom Out",
+          },
+        },
+        tooltip: {
+          isHidden: false,
+        },
+        verticalPanel: {
+          isHidden: false,
+          topMargin: 25,
+        },
+      };
+      const viewer = new RICOH360Viewer({
+        divId: "viewer",
+        onFetchToken: () => "{{token}}",
+        ui,
+      });
+
+      viewer.start({
+        contentId: "{{contentIds[0]}}",
+      });
+
+      document.getElementById("currentContentId").innerHTML =
+        "{{contentIds[0]}}";
+
+      const currentContentId = "{{contentIds[0]}}";
+      const enhanceButtonElement = `<button class="bg-blue-500 text-white py-1 px-2 rounded" onclick="enhanceRightImage('${currentContentId}')"> enhance </button>`;
+      document.getElementById("rightEnhanceButton").innerHTML =
+        enhanceButtonElement;
+
+      const switchRightButtonElement = `<button class="bg-blue-500 text-white py-1 px-2 rounded" onclick="switchRightImage('${currentContentId}')"> sync </button>`;
+      document.getElementById("rightSwitchButton").innerHTML =
+        switchRightButtonElement;
+      var livingRoomButtons = "";
+      for (let index = 0; index < 3; index++) {
+        const livingRoomButtonElement = '<div class="pr-5 py-3 pl-2" >' +
+      `<a href="/livingroom?contentId=${currentContentId}&stagingIndex=${index}" ` + 
+        `class="bg-slate-500 text-white py-1 px-2 rounded"> lr ${index + 1} </a></div>`;
+        livingRoomButtons += livingRoomButtonElement;
+      }
+      document.getElementById("stageButtons").innerHTML =
+        livingRoomButtons;
+
+      const switchViewerImage = async (contentId) => {
+        document.getElementById("currentContentId").innerHTML = contentId;
+        const buttonElement = `<button class="bg-blue-500 text-white py-1 px-2 rounded" onclick="enhanceRightImage('${contentId}')"> enhance </button>`;
+        document.getElementById("rightEnhanceButton").innerHTML = buttonElement;
+
+        const switchRightButtonElement = `<button class="bg-blue-500 text-white py-1 px-2 rounded" onclick="switchRightImage('${contentId}')"> sync </button>`;
+        document.getElementById("rightSwitchButton").innerHTML =
+          switchRightButtonElement;
+
+        console.log("contentId for left pane: ", contentId);
+
+        await viewer.switchScene({
+          contentId: contentId,
+        });
+      };
+    </script>
+  </body>
+</html>

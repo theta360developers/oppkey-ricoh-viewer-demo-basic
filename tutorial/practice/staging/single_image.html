@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://r360pf-prod-static.s3.us-west-2.amazonaws.com/viewer/v0.15.0/ricoh360-viewer.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://r360pf-prod-static.s3.us-west-2.amazonaws.com/viewer/v0.15.0/ricoh360-viewer.js"></script>
+ 
+</head>
+<body>
+    <div
+    style="
+      position: relative;
+      width: 100%;
+      height: 650px;
+      background-color: #2a303c;
+    "
+  >
+    <div id="viewer"></div>
+
+  </div>
+  <script>
+  const viewer = new RICOH360Viewer({
+    divId: "viewer",
+    onFetchToken: () => "{{token}}",
+  });
+  viewer.start({
+    contentId: "{{contentId}}"
+  });
+</script>
+<div class="p-3">
+    <a class="text-xl font-bold bg-orange-500 text-white py-1 px-2 rounded" href="{{ url_for('index')}}">home</a>
+</div>
+
+</body>
+</html>
