@@ -3,6 +3,9 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://r360pf-prod-static.s3.us-west-2.amazonaws.com/viewer/v0.15.0/ricoh360-viewer.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://r360pf-prod-static.s3.us-west-2.amazonaws.com/viewer/v0.15.0/ricoh360-viewer.js"></script>
+ 
 </head>
 <body>
     <div
@@ -14,6 +17,9 @@
     "
   >
     <div id="viewer"></div>
+    <div>
+        <a href="{{ url_for('index')}}">home</a>
+    </div>
   </div>
   <script>
   const viewer = new RICOH360Viewer({
@@ -25,8 +31,8 @@
   });
 </script>
 
-<h2>Fun Test Information</h2>
-<h3>RICOH360 Viewer Token</h3>
+<h2 class="text-lg font-bold ">Fun Test Information</h2>
+<h3 class="font-bold">RICOH360 Viewer Token</h3>
 {{token}}
 </body>
 </html>

@@ -19,7 +19,10 @@
     </div>
     <br />
     <div class="flex flex-wrap">
-      <div class="font-bold text-lg p-2">right pane:</div>
+      <div class="pr-5 py-3 pl-2" id="stageButton">
+        stage button should be here
+      </div>
+      <div class="font-bold text-lg pl-5 pt-2">right pane:</div>
       <div class="p-2" id="rightSwitchButton">
         right switch button should be here
       </div>
@@ -27,6 +30,7 @@
         right enhance button should be here
       </div>
     </div>
+
 
     <div class="flex flex-wrap">
       {% for contentId in contentIds %}
@@ -152,6 +156,9 @@
       const switchRightButtonElement = `<button class="bg-blue-500 text-white py-1 px-2 rounded" onclick="switchRightImage('${currentContentId}')"> sync </button>`;
       document.getElementById("rightSwitchButton").innerHTML =
         switchRightButtonElement;
+        const stageButtonElement = `<a href="/stage/${currentContentId}" class="bg-slate-500 text-white py-1 px-2 rounded"> stage </a>`;
+      document.getElementById("stageButton").innerHTML =
+        stageButtonElement;
 
       const switchViewerImage = async (contentId) => {
         document.getElementById("currentContentId").innerHTML = contentId;
