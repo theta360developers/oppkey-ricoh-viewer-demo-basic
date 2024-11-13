@@ -17,9 +17,7 @@
     "
   >
     <div id="viewer"></div>
-    <div>
-        <a href="{{ url_for('index')}}">home</a>
-    </div>
+
   </div>
   <script>
   const viewer = new RICOH360Viewer({
@@ -30,9 +28,9 @@
     contentId: "{{contentId}}"
   });
 </script>
+<div class="p-3">
+    <a class="text-xl font-bold bg-orange-500 text-white py-1 px-2 rounded" href="{{ url_for('index')}}">home</a>
+</div>
 
-<h2 class="text-lg font-bold ">Fun Test Information</h2>
-<h3 class="font-bold">RICOH360 Viewer Token</h3>
-{{token}}
 </body>
 </html>

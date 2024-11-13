@@ -19,9 +19,7 @@
     </div>
     <br />
     <div class="flex flex-wrap">
-      <div class="pr-5 py-3 pl-2" id="stageButton">
-        stage button should be here
-      </div>
+ 
       <div class="font-bold text-lg pl-5 pt-2">right pane:</div>
       <div class="p-2" id="rightSwitchButton">
         right switch button should be here
@@ -30,6 +28,7 @@
         right enhance button should be here
       </div>
     </div>
+ 
 
 
     <div class="flex flex-wrap">
@@ -45,7 +44,9 @@
       {% endfor %}
     </div>
 
+    <div class = "flex flex-wrap" id="stageButtons">
 
+    </div>
     <h2 class="text-lg font-bold">Fun Test Information</h2>
     <h3 class="font-bold">RICOH360 Viewer Token</h3>
     <p>
@@ -149,7 +150,6 @@
         "{{contentIds[0]}}";
 
       const currentContentId = "{{contentIds[0]}}";
-      const viewerToken = "{{token}}";
       const enhanceButtonElement = `<button class="bg-blue-500 text-white py-1 px-2 rounded" onclick="enhanceRightImage('${currentContentId}')"> enhance </button>`;
       document.getElementById("rightEnhanceButton").innerHTML =
         enhanceButtonElement;
@@ -157,9 +157,15 @@
       const switchRightButtonElement = `<button class="bg-blue-500 text-white py-1 px-2 rounded" onclick="switchRightImage('${currentContentId}')"> sync </button>`;
       document.getElementById("rightSwitchButton").innerHTML =
         switchRightButtonElement;
-        const livingRoomButtonElement = `<a href="/livingroom?contentId=${currentContentId}&viewerToken=${viewerToken}" class="bg-slate-500 text-white py-1 px-2 rounded"> living room </a>`;
-      document.getElementById("stageButton").innerHTML =
-        livingRoomButtonElement;
+      var livingRoomButtons = "";
+      for (let index = 0; index < 3; index++) {
+        const livingRoomButtonElement = '<div class="pr-5 py-3 pl-2" >' +
+      `<a href="/livingroom?contentId=${currentContentId}&stagingIndex=${index}" ` + 
+        `class="bg-slate-500 text-white py-1 px-2 rounded"> lr ${index + 1} </a></div>`;
+        livingRoomButtons += livingRoomButtonElement;
+      }
+      document.getElementById("stageButtons").innerHTML =
+        livingRoomButtons;
 
       const switchViewerImage = async (contentId) => {
         document.getElementById("currentContentId").innerHTML = contentId;

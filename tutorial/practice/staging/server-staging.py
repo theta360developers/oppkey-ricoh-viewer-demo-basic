@@ -18,11 +18,11 @@ CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 
 
-def create_token():
+def create_viewer_token():
     payload = {"client_id": CLIENT_ID}
     token = jwt.encode(payload, PRIVATE_KEY, algorithm="RS256")
+    session["viewer_token"] = token
     # Decode to UTF-8 if necessary
-
     return token if isinstance(token, str) else token.decode("utf-8")
 
 
@@ -59,7 +59,7 @@ def get_content():
 
 @app.route("/")
 def index():
-    token = create_token()
+    token = create_viewer_token()
     content_data = get_content()
     thumburls = []
 
@@ -78,7 +78,8 @@ def index():
 @app.route("/livingroom")
 def stage():
     content_id = request.args.get('contentId')
-    viewer_token = request.args.get('viewerToken')
+    staging_index = int(request.args.get('stagingIndex'))
+    viewer_token = session["viewer_token"]
     cloud_token = session["ricoh_cloud_token"]
 
     # print(f"cloud token: {cloud_token}")
@@ -87,7 +88,7 @@ def stage():
         f"https://api.ricoh360.com/contents/{content_id}/staging:type_living_room", headers=content_headers
     )
     response_dict = content_response.json()
-    first_content_id = response_dict["results"][0]["content_id"]
+    first_content_id = response_dict["results"][staging_index]["content_id"]
     print(f"first content ID: {first_content_id}")
     print(json.dumps(response_dict, indent=4, sort_keys=True))
     return render_template("single_image.html",
