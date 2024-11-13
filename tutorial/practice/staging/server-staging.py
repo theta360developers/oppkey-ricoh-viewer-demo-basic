@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import requests
 import base64
 from config import Config
-
+import json 
 
 load_dotenv("secrets.env")
 
@@ -75,16 +75,24 @@ def index():
                            )
 
 
-@app.route("/stage")
+@app.route("/livingroom")
 def stage():
     content_id = request.args.get('contentId')
     viewer_token = request.args.get('viewerToken')
     cloud_token = session["ricoh_cloud_token"]
 
-    print(f"cloud token: {cloud_token}")
+    # print(f"cloud token: {cloud_token}")
+    content_headers = {"Authorization": f"Bearer {cloud_token}"}
+    content_response = requests.get(
+        f"https://api.ricoh360.com/contents/{content_id}/staging:type_living_room", headers=content_headers
+    )
+    response_dict = content_response.json()
+    first_content_id = response_dict["results"][0]["content_id"]
+    print(f"first content ID: {first_content_id}")
+    print(json.dumps(response_dict, indent=4, sort_keys=True))
     return render_template("single_image.html",
                            token=viewer_token,
-                           contentId=content_id,
+                           contentId=first_content_id,
                            )
 
 

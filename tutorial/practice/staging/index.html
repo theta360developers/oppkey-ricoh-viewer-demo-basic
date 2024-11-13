@@ -157,9 +157,9 @@
       const switchRightButtonElement = `<button class="bg-blue-500 text-white py-1 px-2 rounded" onclick="switchRightImage('${currentContentId}')"> sync </button>`;
       document.getElementById("rightSwitchButton").innerHTML =
         switchRightButtonElement;
-        const stageButtonElement = `<a href="/stage?contentId=${currentContentId}&viewerToken=${viewerToken}" class="bg-slate-500 text-white py-1 px-2 rounded"> stage </a>`;
+        const livingRoomButtonElement = `<a href="/livingroom?contentId=${currentContentId}&viewerToken=${viewerToken}" class="bg-slate-500 text-white py-1 px-2 rounded"> living room </a>`;
       document.getElementById("stageButton").innerHTML =
-        stageButtonElement;
+        livingRoomButtonElement;
 
       const switchViewerImage = async (contentId) => {
         document.getElementById("currentContentId").innerHTML = contentId;
