@@ -3,3 +3,4 @@ secrets.env
 README.pdf
 README_files
 venv
+.DS_Store
