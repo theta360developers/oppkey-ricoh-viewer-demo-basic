@@ -3,3 +3,4 @@ flutter_demo/*/build/*
 flutter_demo/*/.idea
 flutter_demo/*/.dart_tool
 venv
+*.pyc
