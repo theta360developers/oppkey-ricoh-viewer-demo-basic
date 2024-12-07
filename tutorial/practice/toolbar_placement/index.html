@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://r360pf-prod-static.s3.us-west-2.amazonaws.com/viewer/v0.15.0/ricoh360-viewer.js"></script>
+    <style>
+      .overlay {
+        position: absolute;
+        bottom: 1px; /* Adjust distance from the bottom */
+        right: 5px; /* Adjust distance from the right */
+        z-index: 10;
+        width: auto;
+        height: auto;
+      }
+
+      .logo {
+        width: 14vw; /* Set the desired width of the logo */
+        height: auto; /* Maintain aspect ratio */
+        display: block; /* Prevent extra spacing */
+      }
+
+      .main-window {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        background-color: #2a303c;
+      }
+      .scene-buttons {
+        position: absolute;
+        bottom: 100px; /* Adjust distance from the bottom */
+        left: 5px; /* Adjust distance from the right */
+        z-index: 20;
+        width: auto;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-window">
+      <div id="viewer"></div>
+      <div class="overlay">
+        <img
+          class="logo"
+          src="{{ url_for('static', filename='logo.png')}}"
+        />
+      </div>
+      <div class="scene-buttons">
+        {% for contentId in contentIds %}
+        <img onclick="viewer.switchScene({ contentId: '{{contentId}}'})" src="{{thumbUrls[loop.index -1]}}" alt="thumbnail"
+        style="width:130px;height: 65px;">
+        {% endfor %}
+      </div>
+    </div>
+    <script>
+      const ui = {
+        cropping: {
+          horizontalMargin: 15,
+          verticalMargin: 75,
+        },
+        toolbar: {
+          bottomMargin: 200,
+          isHidden: false,
+          cancelButton: {
+            label: "Cancel",
+          },
+          checkButton: {
+            label: "Done",
+          },
+          autoRotateButton: {
+            isHidden: true,
+            label: "Auto Rotate",
+          },
+          fullScreenButton: {
+            isHidden: true,
+            enterLabel: "Enter Full Screen",
+            exitLabel: "Exit Full Screen",
+          },
+          homePositionButton: {
+            isHidden: true,
+            label: "Home Position",
+          },
+          zoomControlButtons: {
+            isHidden: false,
+            zoomInLabel: "Zoom In",
+            zoomOutLabel: "Zoom Out",
+          },
+        },
+        tooltip: {
+          isHidden: false,
+        },
+  
+      };
+      const viewer = new RICOH360Viewer({
+        divId: "viewer",
+        onFetchToken: () => "{{token}}",
+        ui
+      });
+      viewer.start({
+        contentId: "{{contentIds[0]}}",
+      });
+
+      const switchViewerImage = async (contentId) => {
+       
+       document.getElementById("currentContentId").innerHTML = contentId;
+
+       console.log("contentId for left pane: ", contentId);
+    
+       await viewer.switchScene(
+           {
+               contentId: contentId,
+           }
+       );
+   }
+     
+
+    </script>
+
+    <br />
+   
+
+
+
+ 
+  </body>
+</html>
