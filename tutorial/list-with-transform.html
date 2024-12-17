@@ -19,11 +19,7 @@
       <div id="viewer"></div>
     </div>
     <br />
-    <!-- <div id="rightSwitchButton">right switch button should be here</div>
 
-  <div id="rightEnhanceButton">
-    right enhance button should be here
-  </div> -->
     <div id="buttonRow" class="button-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
       <div   id="rightSwitchButton">right switch button should be here</div>
       <div  id="rightEnhanceButton">right enhance button should be here</div>
@@ -142,6 +138,8 @@
       document.getElementById("currentContentId").innerHTML =
         "{{contentIds[0]}}";
 
+      // button styline https://getcssscan.com/css-buttons-examples
+      // can use button styles 17 and 55  
       const currentContentId = "{{contentIds[0]}}";
       const enhanceButtonElement = `<button class="button-17" onclick="enhanceRightImage('${currentContentId}')"> enhance right </button>`;
       document.getElementById("rightEnhanceButton").innerHTML =
