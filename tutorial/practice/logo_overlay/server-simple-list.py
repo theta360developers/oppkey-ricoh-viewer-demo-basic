@@ -48,7 +48,7 @@ def get_content():
     # Fetch content using the token
     content_headers = {"Authorization": f"Bearer {cloud_content_token}"}
     content_response = requests.get(
-        "https://api.ricoh360.com/contents?limit=40", headers=content_headers
+        "https://api.ricoh360.com/contents?limit=10", headers=content_headers
     )
     content_data = content_response.json()
     return content_data
@@ -58,18 +58,10 @@ def get_content():
 def index():
     token = create_token()
     content_data = get_content()
-    thumburls = []
-
     contentIds = []
     for single_content in content_data:
-        if (single_content.get("thumbnail_url") is not None):
-            contentIds.append(single_content["content_id"])
-            thumburls.append(single_content["thumbnail_url"])
-    return render_template("list-with-transform.html",
-                           token=token,
-                           contentIds=contentIds,
-                           thumburls=thumburls
-                           )
+        contentIds.append(single_content["content_id"])
+    return render_template("simple-list-challenge.html",  token=token, contentIds=contentIds)
 
 
 if __name__ == "__main__":
