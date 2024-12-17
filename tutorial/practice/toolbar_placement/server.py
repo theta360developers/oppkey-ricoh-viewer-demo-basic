@@ -48,7 +48,7 @@ def get_content():
     # Fetch content using the token
     content_headers = {"Authorization": f"Bearer {cloud_content_token}"}
     content_response = requests.get(
-        "https://api.ricoh360.com/contents?limit=10", headers=content_headers
+        "https://api.ricoh360.com/contents?limit=5", headers=content_headers
     )
     content_data = content_response.json()
     return content_data

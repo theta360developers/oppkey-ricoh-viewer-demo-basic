@@ -1,163 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://r360pf-prod-static.s3.us-west-2.amazonaws.com/viewer/v0.15.0/ricoh360-viewer.js"></script>
-</head>
-<body>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/transform.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='favicon.ico') }}">
+
+  </head>
+  <body>
     <div
-    style="
-      position: relative;
-      width: 100%;
-      height: 650px;
-      background-color: #2a303c;
-    "
-  >
-    <div id="viewer"></div>
-  </div>
-  <br>
-
-  
-  {% for contentId in contentIds %}
-  <img onclick="switchViewerImage('{{contentId}}')" src="{{thumburls[loop.index -1]}}" alt="thumbnail"
-  style="width:80px;height: 40px;">
-
-  
-  {% endfor %}
-
-  <div id="rightSwitchButton">right switch button should be here</div>
+      style="
+        position: relative;
+        width: 100%;
+        height: 650px;
+        background-color: #2a303c;
+      "
+    >
+      <div id="viewer"></div>
+    </div>
+    <br />
+    <!-- <div id="rightSwitchButton">right switch button should be here</div>
 
   <div id="rightEnhanceButton">
     right enhance button should be here
-  </div>
-
-
-
-<h2>Fun Test Information</h2>
-<h3>RICOH360 Viewer Token</h3>
-<p>There are two different tokens.  The viewer token is created by PyJWT and signed
-    with the private key each company receives from RICOH.  If the key is not valid,
-    there should be an error message in the console.
-</p>
-{{token}}
-<hr>
-<h3>current contentId</h3>
-The contentId is obtained from the RICOH Cloud.  A URL cannot
-be sent to the RICOH360 Viewer.
-<div id="currentContentId">   
-    id should be here
+  </div> -->
+    <div id="buttonRow" class="button-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
+      <div   id="rightSwitchButton">right switch button should be here</div>
+      <div  id="rightEnhanceButton">right enhance button should be here</div>
     </div>
+    
 
-   
+    {% for contentId in contentIds %}
+    <img
+      onclick="switchViewerImage('{{contentId}}')"
+      src="{{thumburls[loop.index -1]}}"
+      alt="thumbnail"
+      style="width: 160px; height: 80px; border-radius: 10px"
+    />
+
+    {% endfor %}
+
+    <h2>Fun Test Information</h2>
+    <h3>RICOH360 Viewer Token</h3>
+    <p>
+      There are two different tokens. The viewer token is created by PyJWT and
+      signed with the private key each company receives from RICOH. If the key
+      is not valid, there should be an error message in the console.
+    </p>
+    {{token}}
+    <hr />
+    <h3>current contentId</h3>
+    The contentId is obtained from the RICOH Cloud. A URL cannot be sent to the
+    RICOH360 Viewer.
+    <div id="currentContentId">id should be here</div>
+
     <script>
-    const enhanceRightImage = (contentId) => {       
-       console.log("contentId for right pane: ", contentId);
-       viewer.switchScene(
-           {
-               contentId: contentId,
-               transform: 'enhancement'
-           }, "1"
-       )
-    }
-    const switchRightImage = (contentId) => {       
-       console.log("contentId for right pane: ", contentId);
-       viewer.switchScene(
-           {
-               contentId: contentId,
-           }, "1"
-       )
-    }
-    const ui = {
-              cropping: {
-                horizontalMargin: 15,
-                verticalMargin: 75,
-              },
-              toolbar: {
-                isHidden: false,
-                cancelButton: {
-                  label: "Cancel",
-                },
-                checkButton: {
-                  label: "Done",
-                },
-                autoRotateButton: {
-                  isHidden: false,
-                  label: "Auto Rotate",
-                },
-                croppingButton: {
-                  isHidden: false,
-                  enterLabel: "Enter Cropping",
-                  exitLabel: "Exit Cropping",
-                },
-                annotationButton: {
-                  isHidden: false,
-                  enterLabel: "Use keyboard to annotate",
-                  exitLabel: "Exit keyboard annotation",
-                },
-                drawingButton: {
-                  isHidden: false,
-                  enterLabel: "Enter Drawing",
-                  exitLabel: "Exit Drawing",
-                },
-                fullScreenButton: {
-                  isHidden: false,
-                  enterLabel: "Enter Full Screen",
-                  exitLabel: "Exit Full Screen",
-                },
-                homePositionButton: {
-                  isHidden: false,
-                  label: "Home Position",
-                },
-                zoomControlButtons: {
-                  isHidden: false,
-                  zoomInLabel: "Zoom In",
-                  zoomOutLabel: "Zoom Out",
-                },
-              },
-              tooltip: {
-                isHidden: false,
-              },
-              verticalPanel: {
-                isHidden: false,
-                topMargin: 25,
-              },
-            };       
-    const viewer = new RICOH360Viewer({
-          divId: "viewer",
-          onFetchToken: () => "{{token}}",
-          ui,
-        });
-    
-    viewer.start({
-          contentId: "{{contentIds[0]}}"
-    });
-    
-    document.getElementById("currentContentId").innerHTML = "{{contentIds[0]}}";
+      const enhanceRightImage = (contentId) => {
+        console.log("contentId for right pane: ", contentId);
+        viewer.switchScene(
+          {
+            contentId: contentId,
+            transform: "enhancement",
+          },
+          "1"
+        );
+      };
+      const switchRightImage = (contentId) => {
+        console.log("contentId for right pane: ", contentId);
+        viewer.switchScene(
+          {
+            contentId: contentId,
+          },
+          "1"
+        );
+      };
+      const ui = {
+        cropping: {
+          horizontalMargin: 15,
+          verticalMargin: 75,
+        },
+        toolbar: {
+          isHidden: false,
+          cancelButton: {
+            label: "Cancel",
+          },
+          checkButton: {
+            label: "Done",
+          },
+          autoRotateButton: {
+            isHidden: false,
+            label: "Auto Rotate",
+          },
+          croppingButton: {
+            isHidden: false,
+            enterLabel: "Enter Cropping",
+            exitLabel: "Exit Cropping",
+          },
+          annotationButton: {
+            isHidden: false,
+            enterLabel: "Use keyboard to annotate",
+            exitLabel: "Exit keyboard annotation",
+          },
+          drawingButton: {
+            isHidden: false,
+            enterLabel: "Enter Drawing",
+            exitLabel: "Exit Drawing",
+          },
+          fullScreenButton: {
+            isHidden: false,
+            enterLabel: "Enter Full Screen",
+            exitLabel: "Exit Full Screen",
+          },
+          homePositionButton: {
+            isHidden: false,
+            label: "Home Position",
+          },
+          zoomControlButtons: {
+            isHidden: false,
+            zoomInLabel: "Zoom In",
+            zoomOutLabel: "Zoom Out",
+          },
+        },
+        tooltip: {
+          isHidden: false,
+        },
+        verticalPanel: {
+          isHidden: false,
+          topMargin: 25,
+        },
+      };
+      const viewer = new RICOH360Viewer({
+        divId: "viewer",
+        onFetchToken: () => "{{token}}",
+        ui,
+      });
 
-    const currentContentId = "{{contentIds[0]}}";
-    const enhanceButtonElement = `<button onclick="enhanceRightImage('${currentContentId}')"> enhance right </button>`;
-    document.getElementById("rightEnhanceButton").innerHTML = enhanceButtonElement;
-    
-    const switchRightButtonElement = `<button onclick="switchRightImage('${currentContentId}')"> sync right </button>`;
-    document.getElementById("rightSwitchButton").innerHTML = switchRightButtonElement;
+      viewer.start({
+        contentId: "{{contentIds[0]}}",
+      });
 
-    const switchViewerImage = async (contentId) => {
-       
+      document.getElementById("currentContentId").innerHTML =
+        "{{contentIds[0]}}";
+
+      const currentContentId = "{{contentIds[0]}}";
+      const enhanceButtonElement = `<button class="button-17" onclick="enhanceRightImage('${currentContentId}')"> enhance right </button>`;
+      document.getElementById("rightEnhanceButton").innerHTML =
+        enhanceButtonElement;
+
+      const switchRightButtonElement = `<button class="button-17" onclick="switchRightImage('${currentContentId}')"> sync right </button>`;
+
+      document.getElementById("rightSwitchButton").innerHTML =
+        switchRightButtonElement;
+
+      const switchViewerImage = async (contentId) => {
         document.getElementById("currentContentId").innerHTML = contentId;
-        const buttonElement = `<button onclick="enhanceRightImage('${contentId}')"> enhance right </button>`; 
+        const buttonElement = `<button  onclick="enhanceRightImage('${contentId}')"> enhance right </button>`;
         document.getElementById("rightEnhanceButton").innerHTML = buttonElement;
 
         const switchRightButtonElement = `<button onclick="switchRightImage('${contentId}')"> sync right </button>`;
-        document.getElementById("rightSwitchButton").innerHTML = switchRightButtonElement;
+        document.getElementById("rightSwitchButton").innerHTML =
+          switchRightButtonElement;
 
         console.log("contentId for left pane: ", contentId);
-     
-        await viewer.switchScene(
-            {
-                contentId: contentId,
-            }
-        );
-    }
+
+        await viewer.switchScene({
+          contentId: contentId,
+        });
+      };
     </script>
-</body>
+  </body>
 </html>
